@@ -11,12 +11,12 @@ type Proc string
 
 const (
 	simpleMonitor Monitor = "LG 19'"
-	proMonitor Monitor = "LG 27'"
+	proMonitor    Monitor = "LG 27'"
 
-	proSSD SSD = "1TB Samsung"
+	proSSD    SSD = "1TB Samsung"
 	simpleSSD SSD = "128 NoName"
 
-	proProc Proc = "IntelCore i9"
+	proProc    Proc = "IntelCore i9"
 	simpleProc Proc = "NoName Proc"
 )
 
@@ -28,14 +28,14 @@ type Computer interface {
 type computer struct {
 	output Monitor
 	memory SSD
-	core Proc
+	core   Proc
 }
 
 func (c *computer) TurnOn() string {
 	return fmt.Sprintf("Turn on a %s monitor, a %s processor, a %s memory\n", c.output, c.core, c.memory)
 }
 
-func (c *computer) TurnOff() string{
+func (c *computer) TurnOff() string {
 	return fmt.Sprintf("Turn off a %s monitor, a %s processor, a %s memory\n", c.output, c.core, c.memory)
 }
 
@@ -49,7 +49,7 @@ type ComputerBuilder interface {
 type computerBuilder struct {
 	output Monitor
 	memory SSD
-	core Proc
+	core   Proc
 }
 
 func NewBuilder() *computerBuilder {
@@ -57,7 +57,7 @@ func NewBuilder() *computerBuilder {
 }
 
 func (cb *computerBuilder) Build() *computer {
-	return &computer{ cb.output, cb.memory, cb.core}
+	return &computer{cb.output, cb.memory, cb.core}
 }
 
 func (cb *computerBuilder) Output(monitor Monitor) *computerBuilder {
