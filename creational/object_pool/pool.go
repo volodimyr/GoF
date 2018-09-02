@@ -1,4 +1,4 @@
-package main
+package pool
 
 import (
 	"fmt"
@@ -30,7 +30,7 @@ func New(total int) *Pool {
 	return &p
 }
 
-func main() {
+func pool() {
 	p := New(3)
 
 	for {
